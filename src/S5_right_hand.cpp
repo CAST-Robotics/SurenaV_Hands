@@ -32,9 +32,9 @@ right_hand::right_hand(VectorXd q_ra,VectorXd v,VectorXd r_target,MatrixXd R_tar
     sai_target=sai_calc(R_target);
     theta_target=theta_calc(R_target);
     phi_target=phi_calc(R_target);
-    V.resize(3,1); //??
-    V=v; //???
-    sai_dot=(sai_target-sai); //?? coef kuuuuuuu??
+    V.resize(3,1); 
+    V=v; 
+    sai_dot=(sai_target-sai); 
     phi_dot=(phi_target-phi);
     theta_dot=(theta_target-theta);
 
@@ -194,7 +194,7 @@ jacob(q_ra);
 }
 
 
-/*void right_hand::matrix_view(MatrixXd M){ //??????????
+/*void right_hand::matrix_view(MatrixXd M){ 
     for (int i = 0; i <M.rows() ; ++i) {
         QString str;
         for (int j = 0; j <M.cols() ; ++j) {str+=QString::number(M(i,j));str+="   ";}
@@ -305,7 +305,7 @@ double right_hand::distance(VectorXd V1,VectorXd V2){
     return d;
 }
 
-double right_hand::velocity(double d,double d0){ //????
+double right_hand::velocity(double d,double d0){ 
     double a2,a3;
     a3=2*(v_target-v0)/d0/d0/d0;
     a2=-3/2*a3*d0;
@@ -574,7 +574,7 @@ maximum={80.0 ,10.0 ,60.0 ,-5.0 ,90.0 ,20.0 ,20.0 };
 //maximum={180 ,180 ,180 ,180,180 ,180 ,180 };
 
     CI.resize(7,14);
-    CI<<MatrixXd::Identity(7,7)*(-1),MatrixXd::Identity(7,7); //???????
+    CI<<MatrixXd::Identity(7,7)*(-1),MatrixXd::Identity(7,7); 
     ci0.resize(14,1);
     ci0<<   min((toRad(maximum[0])-q_ra(0))/T,qdot_max),
             min((toRad(maximum[1])-q_ra(1))/T,qdot_max),//

@@ -1,3 +1,4 @@
+
 #PARAMETERS TO CHANGE: ____________________________
 N=800
 urfdName="SURENA/surenaNOTWorld.urdf"  #surenaFIXEDtoWorld.urdf
@@ -73,8 +74,8 @@ while flag:
     for ii in range(7):
         feedback_theta[i][ii]=JointStates[ii][0] #theta
         feedback_thetaDot[i][ii]=JointStates[ii][1] #theta_dot
-        
 
+        
     j+=7
     i+=1
     if i==N:    
@@ -94,6 +95,16 @@ while flag:
 
 p.disconnect()
 
+
+def cal_derivative(param):
+    der=np.zeros((N,7))
+    for i in range(1,N):
+        for j in range(7):
+            der[i][j]=(param[i][j]-param[i-1][j])*200.
+
+    return der
+
+
 def plot_actions(): 
     plt.figure()
     plt.plot(actions)
@@ -111,9 +122,24 @@ def plot_feedbacks():
     plt.legend([1,2,3,4,5,6,7])
     plt.title("FeedBack Theta_Dot")
 
+    plt.figure()
+    plt.plot(accelerations)
+    plt.legend([1,2,3,4,5,6,7])
+    plt.title("Accelerations")
+
+    plt.figure()
+    plt.plot(jerks)
+    plt.legend([1,2,3,4,5,6,7])
+    plt.title("Jerks")
+
+
 if Plot:
     import matplotlib.pyplot as plt
+    accelerations=cal_derivative(feedback_thetaDot)
+    jerks=cal_derivative(accelerations)
     plot_actions()
     plot_feedbacks()
     plt.show()
+
 print("^_^")
+

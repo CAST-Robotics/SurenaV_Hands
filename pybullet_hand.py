@@ -112,31 +112,22 @@ def plot_actions():
     plt.title("Actions")  
 
 def plot_feedbacks():
-    plt.figure()
-    plt.plot(feedback_theta)
-    plt.legend([1,2,3,4,5,6,7])
-    plt.title("FeedBack Theta")
-
-    plt.figure()
-    plt.plot(feedback_thetaDot)
-    plt.legend([1,2,3,4,5,6,7])
-    plt.title("FeedBack Theta_Dot")
-
-    plt.figure()
-    plt.plot(accelerations)
-    plt.legend([1,2,3,4,5,6,7])
-    plt.title("Accelerations")
-
-    plt.figure()
-    plt.plot(jerks)
-    plt.legend([1,2,3,4,5,6,7])
-    plt.title("Jerks")
+    for fb in feed_backs:
+        plt.figure()
+        plt.plot(feed_backs[fb])
+        plt.legend([1,2,3,4,5,6,7])
+        plt.title(fb)
 
 
 if Plot:
     import matplotlib.pyplot as plt
     accelerations=cal_derivative(feedback_thetaDot)
     jerks=cal_derivative(accelerations)
+    feed_backs={"FeedBackTheta":feedback_theta,
+                "FeedBackTheta_Dot":feedback_thetaDot,
+                "Accelerations":accelerations,
+                "Jerks":jerks}
+
     plot_actions()
     plot_feedbacks()
     plt.show()

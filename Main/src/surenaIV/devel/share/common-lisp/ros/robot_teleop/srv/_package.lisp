@@ -1,0 +1,25 @@
+(cl:defpackage robot_teleop-srv
+  (:use )
+  (:export
+   "ACTIVE_CSP"
+   "<ACTIVE_CSP-REQUEST>"
+   "ACTIVE_CSP-REQUEST"
+   "<ACTIVE_CSP-RESPONSE>"
+   "ACTIVE_CSP-RESPONSE"
+   "HOME"
+   "<HOME-REQUEST>"
+   "HOME-REQUEST"
+   "<HOME-RESPONSE>"
+   "HOME-RESPONSE"
+   "NODE"
+   "<NODE-REQUEST>"
+   "NODE-REQUEST"
+   "<NODE-RESPONSE>"
+   "NODE-RESPONSE"
+   "RESET_NODE"
+   "<RESET_NODE-REQUEST>"
+   "RESET_NODE-REQUEST"
+   "<RESET_NODE-RESPONSE>"
+   "RESET_NODE-RESPONSE"
+  ))
+

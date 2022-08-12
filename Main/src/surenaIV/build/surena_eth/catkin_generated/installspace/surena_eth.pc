@@ -1,0 +1,8 @@
+prefix=/home/cast/surenaIV/install
+
+Name: surena_eth
+Description: Description of surena_eth
+Version: 0.1.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: 

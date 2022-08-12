@@ -1,0 +1,2 @@
+offlinePublisher:robot_teleop:s5_test:surena_eth
+-DCATKIN_DEVEL_PREFIX=/home/cast/surenaIV/devel -DCMAKE_INSTALL_PREFIX=/home/cast/surenaIV/install -G Unix Makefiles

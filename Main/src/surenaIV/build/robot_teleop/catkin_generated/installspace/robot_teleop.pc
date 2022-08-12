@@ -1,0 +1,8 @@
+prefix=/home/cast/surenaIV/install
+
+Name: robot_teleop
+Description: Description of robot_teleop
+Version: 0.1.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: 

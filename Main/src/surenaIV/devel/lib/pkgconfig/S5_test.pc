@@ -1,0 +1,8 @@
+prefix=/home/cast/surenaIV/devel
+
+Name: S5_test
+Description: Description of S5_test
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
